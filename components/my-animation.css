@@ -1,177 +1,39 @@
-```html
- <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bouncing Ball Animation</title>
-  <!-- Include the CSS from CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/your-username/your-repo/bouncing-ball.min.css">
-  <style>
-  /* Optional: Override default styles here if needed */
-  #ball-container {
-  width: 100px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
-  }
+#glowingbutton {
+  /* Basic button styling */
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  /* Glow effect using box-shadow */
+  box-shadow: 
+    0 0 15px rgba(37, 117, 252, 0.5),
+    0 0 30px rgba(37, 117, 252, 0.3);
+  
+  /* Smooth transition for hover effect */
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-  .ball {
-  background-color: #3498db; /* Adjust color as needed */
-  }
+/* Hover effect with enhanced glow */
+#glowingbutton:hover {
+  box-shadow: 
+    0 0 20px rgba(37, 117, 252, 0.8),
+    0 0 40px rgba(37, 117, 252, 0.6),
+    0 0 60px rgba(37, 117, 252, 0.4);
+  transform: translateY(-3px);
+}
 
-  body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
-  }
-  </style>
- </head>
- <body>
-
-  <!-- Container for the bouncing ball -->
-  <div id="ball-container">
-  <div class="ball"></div>
-  </div>
-
-  <!-- Optional: Include JavaScript from CDN if needed for advanced control -->
-  <!-- <script src="https://cdn.jsdelivr.net/gh/your-username/your-repo/bouncing-ball.min.js"></script> -->
-
- </body>
- </html>
- ```
-
- ```css
- /*!
-  * Bouncing Ball Animation CSS
-  * Version: 1.0.0
-  * Author: Your Name
-  * Description: A customizable bouncing ball animation.
-  * License: MIT
-  * CDN: https://cdn.jsdelivr.net/gh/your-username/your-repo/bouncing-ball.min.css
-  */
-
- /* Container styles - controls size and positioning */
- #ball-container {
-  position: relative; /* Required for positioning the ball */
-  width: 100px; /* Customizable: Adjust the width of the container */
-  height: 100px; /* Customizable: Adjust the height of the container */
-  margin: 20px auto; /* Centers the container horizontally */
- }
-
- /* Ball styles - appearance and animation */
- .ball {
-  position: absolute; /* Absolute positioning within the container */
-  top: 0;
-  left: 0;
-  width: 100%; /* Customizable: Adjust the width of the ball */
-  height: 100%; /* Customizable: Adjust the height of the ball */
-  border-radius: 50%; /* Makes the ball round */
-  background-color: #e74c3c; /* Customizable: Change the ball color */
-  animation: bounce 2s cubic-bezier(.4,0,.2,1) infinite; /* Customizable: Adjust animation duration and easing */
-  transform-origin: 50% 0%; /* Set transform origin for realistic bounce */
- }
-
- /* Keyframes for the bouncing animation */
- @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-  transform: translateY(0); /* Start and end at the top */
-  }
-  40% {
-  transform: translateY(-30%); /* Customizable: Adjust bounce height */
-  }
-  60% {
-  transform: translateY(-15%); /* Customizable: Adjust secondary bounce height */
-  }
- }
-
- /* Optional: Media query for responsiveness */
- @media (max-width: 600px) {
-  #ball-container {
-  width: 80px;
-  height: 80px;
-  }
- }
-
- /* Error handling:  Placeholder for potential future error handling */
- /*  Currently, CSS doesn't have built-in error handling.
-  *  JavaScript (if used) would handle errors related to CDN loading or animation failures.
-  */
- ```
- ```javascript
- // Optional: JavaScript for more advanced control (e.g., start/stop animation)
- //  This example is minimal and demonstrates module export.  Expand as needed.
-
- /**
-  * Bouncing Ball Controller
-  * Version: 1.0.0
-  * Author: Your Name
-  * Description: Controls the bouncing ball animation.
-  * License: MIT
-  * CDN: https://cdn.jsdelivr.net/gh/your-username/your-repo/bouncing-ball.min.js
-  */
-
- const ballController = {
-  startAnimation: () => {
-  // Add logic to start the animation (e.g., by adding/removing a class)
-  const ball = document.querySelector('.ball');
-  if (ball) {
-  ball.style.animationPlayState = 'running';
-  } else {
-  console.error("Bouncing ball element not found."); // Basic error handling
-  }
-  },
-
-  stopAnimation: () => {
-  // Add logic to stop the animation (e.g., by adding/removing a class)
-  const ball = document.querySelector('.ball');
-  if (ball) {
-  ball.style.animationPlayState = 'paused';
-  } else {
-  console.error("Bouncing ball element not found."); // Basic error handling
-  }
-  },
-
-  //Example of adding a class
-  addClassToBall: () => {
-  const ball = document.querySelector('.ball');
-  if (ball) {
-  ball.classList.add('extra-styling');
-  } else {
-  console.error("Bouncing ball element not found.");
-  }
-  },
-
-  removeClassFromBall: () => {
-  const ball = document.querySelector('.ball');
-  if (ball) {
-  ball.classList.remove('extra-styling');
-  } else {
-  console.error("Bouncing ball element not found.");
-  }
-  }
- };
-
- //Export the module for CDN use
- export default ballController;
-
- //To use this in HTML
- // <script src="https://cdn.jsdelivr.net/gh/your-username/your-repo/bouncing-ball.min.js" type="module"></script>
- // <script>
- //  import ballController from './bouncing-ball.min.js'; // Adjust path if needed
- //  document.addEventListener('DOMContentLoaded', () => {
- //  ballController.startAnimation(); // Start the animation when the page loads
- //  });
- // </script>
- ```
- ```javascript
- // minification
-
- // Javascript (if used):
- // Use a tool like Terser or UglifyJS to minify the JavaScript file before uploading to the CDN.
- // Example command: terser bouncing-ball.js -o bouncing-ball.min.js
-
- // CSS:
- // Use a CSS minifier like cssnano or Clean CSS to minify the CSS file before uploading to the CDN.
- // Example command (using cssnano): npx cssnano bouncing-ball.css bouncing-ball.min.css
- ```
+/* Active/pushed effect with pulsing glow */
+#glowingbutton:active {
+  animation: pulse 0.5s ease;
+  box-shadow: 
+    0 0 5px rgba(37, 117, 252, 0.3),
+    0 0 15px rgba(37, 117, 252, 0.2);
+  transform: translateY(1px);
+}
