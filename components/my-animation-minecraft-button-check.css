@@ -1,0 +1,198 @@
+/* Minecraft Button Styles */
+/* CDN-Ready CSS Animation */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Base button styles */
+.minecraft-button {
+  /* Font */
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  text-transform: uppercase;
+  
+  /* Box styles */
+  display: inline-block;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  
+  /* Minecraft block appearance */
+  background: #555555;
+  color: #ffffff;
+  text-shadow: 0 0 2px #000;
+  box-shadow: 
+    inset -3px -3px 0 #222, 
+    inset 3px 3px 0 #888,
+    0 4px 0 #333,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+  
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* Responsive sizing */
+  width: auto;
+  min-width: 120px;
+  max-width: 100%;
+  
+  /* Animation */
+  transition: all 0.1s ease;
+  
+  /* Safety fallbacks */
+  background-color: #555555 fallback;
+  color: #ffffff fallback;
+}
+
+/* Hover state */
+.minecraft-button:hover {
+  background: #5a5a5a;
+  box-shadow: 
+    inset -3px -3px 0 #252525, 
+    inset 3px 3px 0 #8d8d8d,
+    0 4px 0 #333,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Active/Pressed state */
+.minecraft-button:active,
+.minecraft-button:focus {
+  background: #444444;
+  box-shadow: 
+    inset 2px 2px 0 #222, 
+    inset -2px -2px 0 #888,
+    0 2px 0 #333,
+    0 3px 2px rgba(0, 0, 0, 0.3);
+  
+  /* Pressed animation */
+  transform: translateY(4px);
+}
+
+/* Disabled state */
+.minecraft-button:disabled {
+  background: #666666;
+  color: #aaaaaa;
+  box-shadow: 
+    inset -2px -2px 0 #444, 
+    inset 2px 2px 0 #999,
+    0 2px 0 #444,
+    0 3px 2px rgba(0, 0, 0, 0.2);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .minecraft-button {
+    font-size: 12px;
+    padding: 12px 20px;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .minecraft-button {
+    font-size: 10px;
+    padding: 10px 15px;
+    min-width: 80px;
+  }
+}
+
+/* Error handling for unsupported features */
+@supports not (box-shadow: 0 0 0) {
+  .minecraft-button {
+    border: 2px solid #333;
+    background: #555;
+  }
+}
+
+/* Animation keyframes for additional effects */
+@keyframes block-glow {
+  0% { 
+    box-shadow: 
+      inset -3px -3px 0 #222, 
+      inset 3px 3px 0 #888,
+      0 4px 0 #333,
+      0 6px 4px rgba(0, 0, 0, 0.3); 
+  }
+  50% { 
+    box-shadow: 
+      inset -3px -3px 0 #222, 
+      inset 3px 3px 0 #888,
+      0 4px 0 #333,
+      0 6px 8px rgba(0, 200, 255, 0.5); 
+  }
+  100% { 
+    box-shadow: 
+      inset -3px -3px 0 #222, 
+      inset 3px 3px 0 #888,
+      0 4px 0 #333,
+      0 6px 4px rgba(0, 0, 0, 0.3); 
+  }
+}
+
+/* Glowing effect class */
+.minecraft-button.glow {
+  animation: block-glow 2s infinite;
+}
+
+/* Color variants */
+.minecraft-button.dirt {
+  background: #8d6e63;
+  box-shadow: 
+    inset -3px -3px 0 #5d4037, 
+    inset 3px 3px 0 #a1887f,
+    0 4px 0 #5d4037,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+.minecraft-button.stone {
+  background: #9e9e9e;
+  box-shadow: 
+    inset -3px -3px 0 #616161, 
+    inset 3px 3px 0 #bdbdbd,
+    0 4px 0 #616161,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+.minecraft-button.wood {
+  background: #8d6e63;
+  box-shadow: 
+    inset -3px -3px 0 #5d4037, 
+    inset 3px 3px 0 #a1887f,
+    0 4px 0 #5d4037,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+.minecraft-button.gold {
+  background: #ffd600;
+  color: #000;
+  box-shadow: 
+    inset -3px -3px 0 #b29600, 
+    inset 3px 3px 0 #ffff4d,
+    0 4px 0 #b29600,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+.minecraft-button.diamond {
+  background: #00bcd4;
+  box-shadow: 
+    inset -3px -3px 0 #006064, 
+    inset 3px 3px 0 #4dd0e1,
+    0 4px 0 #006064,
+    0 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Size variants */
+.minecraft-button.small {
+  font-size: 10px;
+  padding: 8px 15px;
+  min-width: 80px;
+}
+
+.minecraft-button.large {
+  font-size: 18px;
+  padding: 20px 40px;
+  min-width: 160px;
+}
