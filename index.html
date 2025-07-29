@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub CDN Uploader - Perfect Upload</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2d3748;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        input[type="text"], input[type="password"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 200px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .upload-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .upload-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .status.success {
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+
+        .status.error {
+            background: #fed7d7;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+
+        .status.loading {
+            background: #bee3f8;
+            color: #2b6cb0;
+            border: 1px solid #90cdf4;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .url-display {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
+            font-family: monospace;
+            word-break: break-all;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .copy-btn:hover {
+            background: #38a169;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .setup-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 GitHub CDN Uploader</h1>
+            <p>Perfect Upload to GitHub Repository</p>
+        </div>
+
+        <div class="main-content">
+            <div class="setup-warning">
+                <strong>⚠️ Setup Required:</strong>
+                <br>1. Get GitHub Personal Access Token with 'repo' permissions
+                <br>2. Make sure repository 'yashk40/Mycdnuploader' exists
+                <br>3. Enter your token below
+            </div>
+
+            <div class="form-group">
+                <label for="githubToken">GitHub Personal Access Token *</label>
+                <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="repoName">Repository Name *</label>
+                <input type="text" id="repoName" value="yashk40/Mycdnuploader" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fileName">File Name (with extension) *</label>
+                <input type="text" id="fileName" placeholder="example: mycomponent.js" value="test-component.js" required>
+            </div>
+
+            <div class="form-group">
+                <label for="componentCode">Code Content *</label>
+                <textarea id="componentCode" placeholder="Enter your HTML, CSS, or JavaScript code here..." required>// Test Component
+function createTestButton() {
+    const button = document.createElement('button');
+    button.textContent = 'Test Button';
+    button.style.cssText = `
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    `;
+    button.onclick = () => alert('Button clicked!');
+    return button;
+}
+
+// Export for use
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = createTestButton;
+}</textarea>
+            </div>
+
+            <button class="upload-btn" id="uploadBtn">
+                📤 Upload to GitHub
+            </button>
+
+            <div class="status" id="status"></div>
+
+            <div class="results" id="results">
+                <h3>✅ Upload Successful!</h3>
+                <div>
+                    <strong>CDN URL:</strong>
+                    <div class="url-display" id="cdnUrl"></div>
+                    <button class="copy-btn" onclick="copyText('cdnUrl')">Copy CDN URL</button>
+                </div>
+                <div>
+                    <strong>GitHub File:</strong>
+                    <div class="url-display" id="githubUrl"></div>
+                    <button class="copy-btn" onclick="copyText('githubUrl')">Copy GitHub URL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadBtn').addEventListener('click', async function() {
+            const token = document.getElementById('githubToken').value.trim();
+            const repoName = document.getElementById('repoName').value.trim();
+            const fileName = document.getElementById('fileName').value.trim();
+            const code = document.getElementById('componentCode').value.trim();
+
+            // Validation
+            if (!token) {
+                showStatus('error', '❌ Please enter your GitHub token');
+                return;
+            }
+
+            if (!repoName || !repoName.includes('/')) {
+                showStatus('error', '❌ Please enter repository in format: username/repo-name');
+                return;
+            }
+
+            if (!fileName) {
+                showStatus('error', '❌ Please enter a file name');
+                return;
+            }
+
+            if (!code) {
+                showStatus('error', '❌ Please enter code content');
+                return;
+            }
+
+            // Start upload
+            const btn = document.getElementById('uploadBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Uploading...';
+            
+            showStatus('loading', '⏳ Uploading to GitHub...');
+            hideResults();
+
+            try {
+                const result = await uploadToGitHub(token, repoName, fileName, code);
+                
+                if (result.success) {
+                    showStatus('success', '✅ Successfully uploaded to GitHub!');
+                    showResults(result.cdnUrl, result.githubUrl);
+                } else {
+                    showStatus('error', '❌ Upload failed: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                showStatus('error', '❌ Upload failed: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '📤 Upload to GitHub';
+            }
+        });
+
+        async function uploadToGitHub(token, repoName, fileName, content) {
+            try {
+                const [owner, repo] = repoName.split('/');
+                const path = 'components/' + fileName;
+                
+                console.log('Uploading to:', owner + '/' + repo + '/' + path);
+
+                // Test repository access
+                const repoResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+                    headers: {
+                        'Authorization': 'Bearer ' + token,
+                        'Accept': 'application/vnd.github+json',
+                        'X-GitHub-Api-Version': '2022-11-28'
+                    }
+                });
+
+                if (!repoResponse.ok) {
+                    if (repoResponse.status === 404) {
+                        throw new Error('Repository not found. Please check the repository name.');
+                    } else if (repoResponse.status === 401) {
+                        throw new Error('Invalid token or insufficient permissions.');
+                    } else {
+                        throw new Error(`Cannot access repository: ${repoResponse.status}`);
+                    }
+                }
+
+                // Encode content
+                const encodedContent = btoa(unescape(encodeURIComponent(content)));
+                
+                // Check if file exists
+                let sha = null;
+                try {
+                    const existingResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+                        headers: {
+                            'Authorization': 'Bearer ' + token,
+                            'Accept': 'application/vnd.github+json',
+                            'X-GitHub-Api-Version': '2022-11-28'
+                        }
+                    });
+                    
+                    if (existingResponse.ok) {
+                        const existingData = await existingResponse.json();
+                        sha = existingData.sha;
+                        console.log('File exists, updating...');
+                    }
+                } catch (e) {
+                    console.log('File does not exist, creating new...');
+                }
+
+                // Upload file
+                const uploadData = {
+                    message: `Upload ${fileName} via CDN Uploader`,
+                    content: encodedContent
+                };
+
+                if (sha) {
+                    uploadData.sha = sha;
+                }
+
+                const uploadResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': 'Bearer ' + token,
+                        'Accept': 'application/vnd.github+json',
+                        'X-GitHub-Api-Version': '2022-11-28',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(uploadData)
+                });
+
+                if (!uploadResponse.ok) {
+                    const errorData = await uploadResponse.json();
+                    throw new Error(errorData.message || `HTTP ${uploadResponse.status}`);
+                }
+
+                const uploadResult = await uploadResponse.json();
+                const cdnUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
+                
+                console.log('Upload successful!');
+                
+                return {
+                    success: true,
+                    cdnUrl: cdnUrl,
+                    githubUrl: uploadResult.content.html_url
+                };
+
+            } catch (error) {
+                console.error('GitHub API Error:', error);
+                return {
+                    success: false,
+                    error: error.message
+                };
+            }
+        }
+
+        function showStatus(type, message) {
+            const status = document.getElementById('status');
+            status.className = `status ${type}`;
+            status.textContent = message;
+            status.style.display = 'block';
+        }
+
+        function hideResults() {
+            document.getElementById('results').style.display = 'none';
+        }
+
+        function showResults(cdnUrl, githubUrl) {
+            document.getElementById('cdnUrl').textContent = cdnUrl;
+            document.getElementById('githubUrl').textContent = githubUrl;
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function copyText(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalBg = element.style.background;
+                    element.style.background = '#c6f6d5';
+                    setTimeout(() => {
+                        element.style.background = originalBg;
+                    }, 1000);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                });
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('githubToken').focus();
+        });
+    </script>
+</body>
+</html>
