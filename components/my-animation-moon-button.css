@@ -1,0 +1,239 @@
+/*!
+ * Moon-Inspired Round Button v1.0.0
+ * Responsive CSS animation for a moon-inspired button
+ */
+
+/* Base button styles */
+.moon-button {
+  /* Core button styling */
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e6e9f0 0%, #d4d7dd 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 4px 10px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  
+  /* Center content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Responsive sizing */
+  min-width: 60px;
+  min-height: 60px;
+  
+  /* Focus accessibility */
+  outline: none;
+}
+
+/* Button content (moon craters) */
+.moon-button::before,
+.moon-button::after {
+  content: '';
+  position: absolute;
+  background: rgba(200, 200, 210, 0.4);
+  border-radius: 50%;
+}
+
+/* Large crater */
+.moon-button::before {
+  width: 20px;
+  height: 20px;
+  top: 20%;
+  left: 30%;
+}
+
+/* Small crater */
+.moon-button::after {
+  width: 12px;
+  height: 12px;
+  bottom: 25%;
+  right: 25%;
+}
+
+/* Button hover effect */
+.moon-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 12px 25px rgba(0, 0, 0, 0.2),
+    inset 0 4px 15px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #f0f2f5 0%, #e0e3e8 100%);
+}
+
+/* Button active/click effect */
+.moon-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -4px 8px rgba(255, 255, 255, 0.5);
+  transition: all 0.1s ease;
+}
+
+/* Moon glow effect on hover */
+.moon-button:hover::before,
+.moon-button:hover::after {
+  background: rgba(180, 180, 190, 0.5);
+  animation: pulse 2s infinite;
+}
+
+/* Pulse animation for craters */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 200, 210, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(200, 200, 210, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 200, 210, 0);
+  }
+}
+
+/* Button icon styles */
+.moon-button .moon-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 28px;
+  color: #6c757d;
+  transition: all 0.3s ease;
+}
+
+/* Icon hover effect */
+.moon-button:hover .moon-icon {
+  color: #495057;
+  transform: scale(1.1);
+}
+
+/* Focus state for accessibility */
+.moon-button:focus-visible {
+  outline: 2px dashed #6c757d;
+  outline-offset: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .moon-button {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .moon-button .moon-icon {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .moon-button {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .moon-button .moon-icon {
+    font-size: 20px;
+  }
+}
+
+/* Animation for initial appearance */
+.moon-button {
+  animation: moonAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Moon appearance animation */
+@keyframes moonAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Floating animation */
+.moon-button.float {
+  animation: moonFloat 3s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer effect */
+.moon-button.shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 30px;
+  height: 150%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(30deg);
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+/* Error state styling */
+.moon-button.error {
+  background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
+  box-shadow: 
+    0 8px 20px rgba(220, 53, 69, 0.2),
+    inset 0 4px 10px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(220, 53, 69, 0.1);
+}
+
+.moon-button.error:hover {
+  background: linear-gradient(135deg, #f9e0e3 0%, #f4c2c9 100%);
+  box-shadow: 
+    0 12px 25px rgba(220, 53, 69, 0.3),
+    inset 0 4px 15px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 15px rgba(220, 53, 69, 0.15);
+}
+
+/* Success state styling */
+.moon-button.success {
+  background: linear-gradient(135deg, #d4edda 0%, #b1dfbb 100%);
+  box-shadow: 
+    0 8px 20px rgba(40, 167, 69, 0.2),
+    inset 0 4px 10px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(40, 167, 69, 0.1);
+}
+
+.moon-button.success:hover {
+  background: linear-gradient(135deg, #ddf0e2 0%, #c1e6cc 100%);
+  box-shadow: 
+    0 12px 25px rgba(40, 167, 69, 0.3),
+    inset 0 4px 15px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 15px rgba(40, 167, 69, 0.1
