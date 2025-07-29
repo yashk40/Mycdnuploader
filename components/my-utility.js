@@ -1,0 +1,41 @@
+#glowingbutton {
+  /* Basic button styling */
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  /* Glow effect using box-shadow */
+  box-shadow: 
+    0 0 15px rgba(37, 117, 252, 0.5),
+    0 0 30px rgba(37, 117, 252, 0.3);
+  
+  /* Smooth transition for hover effect */
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect with enhanced glow */
+#glowingbutton:hover {
+  box-shadow: 
+    0 0 20px rgba(37, 117, 252, 0.8),
+    0 0 40px rgba(37, 117, 252, 0.6),
+    0 0 60px rgba(37, 117, 252, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Active/pushed effect with pulsing glow */
+#glowingbutton:active {
+  animation: pulse 0.5s ease;
+  box-shadow: 
+    0 0 5px rgba(37, 117, 252, 0.3),
+    0 0 15px rgba(37, 117, 252, 0.2);
+  transform: translateY(1px);
+}
+
+/*
