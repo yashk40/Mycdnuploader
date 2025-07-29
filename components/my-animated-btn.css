@@ -1,0 +1,173 @@
+/*!
+ * Animated Button CSS v1.0.0
+ * A modern, responsive animated button with hover and click effects
+ * Author: Assistant
+ * License: MIT
+ */
+
+/* Base button styles - self-contained and responsive */
+.animated-button {
+  /* Core styling */
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
+  transform: translateY(0);
+  
+  /* Responsive sizing */
+  min-width: 150px;
+  width: auto;
+  max-width: 100%;
+  
+  /* Ensure proper box model */
+  box-sizing: border-box;
+  
+  /* Accessibility */
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover state animation */
+.animated-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 117, 252, 0.4);
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+}
+
+/* Active/click state animation */
+.animated-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(37, 117, 252, 0.3);
+  transition: all 0.1s ease;
+}
+
+/* Focus state for accessibility */
+.animated-button:focus {
+  outline: 2px solid rgba(37, 117, 252, 0.5);
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.animated-button:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Animated ripple effect on click */
+.animated-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.animated-button:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+/* Keyframes for ripple animation */
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(30, 30);
+    opacity: 0;
+  }
+}
+
+/* Pulse animation for attention effect */
+.animated-button.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(37, 117, 252, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
+  }
+}
+
+/* Secondary button variant */
+.animated-button.secondary {
+  background: transparent;
+  color: #2575fc;
+  border: 2px solid #2575fc;
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.2);
+}
+
+.animated-button.secondary:hover {
+  background: rgba(37, 117, 252, 0.1);
+  box-shadow: 0 6px 20px rgba(37, 117, 252, 0.3);
+}
+
+.animated-button.secondary:active {
+  background: rgba(37, 117, 252, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animated-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .animated-button {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animated-button,
+  .animated-button:hover,
+  .animated-button:active {
+    transition: none;
+    animation: none;
+  }
+  
+  .animated-button::after {
+    display: none;
+  }
+}
