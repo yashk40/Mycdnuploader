@@ -1,0 +1,88 @@
+/* GlowButton.css - A modern, responsive glowing button using CSS animations */
+
+/* Reset some default styles for consistency */
+button.glow-button {
+    background-color: #6200ea; /* Deep Purple */
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif; /* Ensure font is loaded via CDN */
+}
+
+/* Animation for glowing effect */
+button.glow-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+
+/* Scale up the glow effect on hover */
+button.glow-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+button.glow-button:hover::after {
+    transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    button.glow-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Fallback styles for older browsers */
+@supports not (background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%)) {
+    button.glow-button {
+        background-color: #3700b3; /* Darker Purple */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button.glow-button:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+    }
+}
+```
+
+```html
+<!-- index.html - Self-contained HTML to demonstrate the glowing button -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Button Example</title>
+    <!-- Link to Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to the GlowButton.css file -->
+    <link rel="stylesheet" href="GlowButton.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f5f5f5;">
+
+    <!-- Glowing Button -->
+    <button class="glow-button">Click Me</button>
+
+</body>
+</html>
