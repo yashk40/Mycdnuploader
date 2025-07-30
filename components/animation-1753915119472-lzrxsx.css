@@ -1,0 +1,89 @@
+/* Shiny Button Glowing Animation */
+/* This CSS snippet creates a modern, responsive button that glows when hovered over. */
+
+/* Base button styling */
+.button {
+    /* Ensure button is inline-block for width control */
+    display: inline-block;
+    /* Modern padding and margin */
+    padding: 10px 20px;
+    margin: 10px 0;
+    /* Font settings for better readability and modern look */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    /* Text color */
+    color: #fff;
+    /* Background color for the button */
+    background-color: #007bff;
+    /* Border radius for rounded edges */
+    border-radius: 8px;
+    /* Remove default border */
+    border: none;
+    /* Smooth transition effect */
+    transition: all 0.3s ease;
+    /* Cursor style to indicate interactivity */
+    cursor: pointer;
+    /* Box shadow for a subtle 3D effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Disable text selection */
+    user-select: none;
+    /* Overflow hidden for smooth animations */
+    overflow: hidden;
+    /* Position relative for pseudo-element positioning */
+    position: relative;
+}
+
+/* Pseudo-element for the glowing effect */
+.button::before {
+    /* Content necessary for pseudo-element */
+    content: '';
+    /* Position absolute to cover the button */
+    position: absolute;
+    /* Top and left set to 0 for covering the entire button */
+    top: 0;
+    left: 0;
+    /* Width and height set to cover the entire button initially */
+    width: 100%;
+    height: 100%;
+    /* Background gradient for the glowing effect */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 40%);
+    /* Initial transform to move the glow off-screen */
+    transform: translate(-100%, -100%);
+    /* Transition effect for smooth animation */
+    transition: all 0.5s ease;
+    /* Pointer events none to avoid interfering with button interactions */
+    pointer-events: none;
+}
+
+/* Hover state for the button */
+.button:hover {
+    /* Slightly larger scale for a bump effect */
+    transform: scale(1.05);
+    /* Brighter background color to enhance the glow effect */
+    background-color: #0056b3;
+}
+
+/* Hover state for the pseudo-element */
+.button:hover::before {
+    /* Move the glow to the center of the button */
+    transform: translate(0%, 0%);
+}
+
+/* Active state for button click feedback */
+.button:active {
+    /* Scale down slightly to give a press effect */
+    transform: scale(0.95);
+    /* Darken the background for active state */
+    background-color: #003d7a;
+}
+
+/* Media query for responsiveness */
+@media only screen and (max-width: 600px) {
+    .button {
+        /* Adjust padding for smaller screens */
+        padding: 8px 16px;
+        /* Decrease font size for better fit */
+        font-size: 14px;
+    }
+}
