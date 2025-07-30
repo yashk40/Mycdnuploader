@@ -1,0 +1,242 @@
+/* 
+ * Modern Checkbox Animation CSS
+ * CDN-ready, self-contained component
+ * Responsive and accessible design
+ */
+
+/* Base styles and reset for checkbox container */
+.cbx-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+}
+
+/* Hide default checkbox */
+.cbx-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Hover state */
+.cbx-container:hover input ~ .checkmark {
+  background-color: #e0e0e0;
+  border-color: #ccc;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Focus state for accessibility */
+.cbx-container input:focus ~ .checkmark {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+/* Checked state */
+.cbx-container input:checked ~ .checkmark {
+  background-color: #4285f4;
+  border-color: #4285f4;
+  transform: translateY(-50%);
+}
+
+/* Checkmark animation */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.2s ease;
+}
+
+/* Show checkmark when checked */
+.cbx-container input:checked ~ .checkmark:after {
+  display: block;
+  transform: rotate(45deg) scale(1);
+}
+
+/* Label text styles */
+.cbx-container .cbx-label {
+  transition: color 0.2s ease;
+  color: #333;
+}
+
+/* Label hover effect */
+.cbx-container:hover .cbx-label {
+  color: #4285f4;
+}
+
+/* Checked label style */
+.cbx-container input:checked ~ .cbx-label {
+  color: #4285f4;
+  font-weight: 500;
+}
+
+/* Disabled state */
+.cbx-container input:disabled ~ .checkmark {
+  background-color: #f5f5f5;
+  border-color: #e0e0e0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cbx-container input:disabled ~ .cbx-label {
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Indeterminate state */
+.cbx-container input:indeterminate ~ .checkmark:after {
+  display: block;
+  transform: rotate(0deg) scale(1);
+  border-width: 0 0 2px 0;
+  width: 10px;
+  left: 6px;
+  top: 10px;
+}
+
+/* Ripple effect container */
+.cbx-container .ripple {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(66, 133, 244, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ripple animation */
+@keyframes rippleEffect {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+}
+
+.cbx-container input:checked ~ .ripple {
+  animation: rippleEffect 0.4s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cbx-container {
+    font-size: 14px;
+    padding-left: 35px;
+  }
+  
+  .checkmark {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 4px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cbx-container {
+    font-size: 13px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .checkmark {
+    height: 18px;
+    width: 18px;
+  }
+}
+
+/* Error handling - fallback styles if animations fail */
+@media (prefers-reduced-motion: reduce) {
+  .checkmark,
+  .checkmark:after,
+  .cbx-container .ripple {
+    transition: none;
+    animation: none;
+  }
+  
+  .cbx-container:hover input ~ .checkmark {
+    transform: translateY(-50%);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .cbx-container .checkmark {
+    border: 2px solid #000;
+  }
+  
+  .cbx-container input:checked ~ .checkmark {
+    background-color: #000;
+    border-color: #000;
+  }
+  
+  .checkmark:after {
+    border-color: #fff;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .cbx-container .cbx-label {
+    color: #e0e0e0;
+  }
+  
+  .checkmark {
+    background-color: #2d2d2d;
+    border-color: #555;
+  }
+  
+  .cbx-container:hover input ~ .checkmark {
+    background-color: #3a3a3a;
+    border-color: #666;
+  }
+  
+  .cbx-container input:checked ~ .cbx-label {
+    color: #8ab4f8;
+  }
+}
