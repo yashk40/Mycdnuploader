@@ -1,0 +1,121 @@
+/* CSS for a modern, responsive yellow button with animations */
+/* This CSS is CDN-ready and can be included via a <link> tag */
+
+/* Base styling for the button */
+.button-yellow {
+  background-color: #ffcc00; /* Bright yellow background */
+  color: #000; /* Black text for contrast */
+  border: none; /* No border */
+  padding: 15px 30px; /* Padding for touch targets */
+  font-size: 16px; /* Readable font size */
+  font-family: Arial, sans-serif; /* Sans-serif font for modern look */
+  cursor: pointer; /* Pointer cursor on hover */
+  outline: none; /* No outline on focus */
+  border-radius: 5px; /* Slightly rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect: darken the background and lift the button slightly */
+.button-yellow:hover {
+  background-color: #e6b800; /* Darker yellow */
+  transform: translateY(-2px); /* Lift the button */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow intensity */
+}
+
+/* Active effect: slightly darken and lower the button */
+.button-yellow:active {
+  background-color: #cc9900; /* Darker yellow */
+  transform: translateY(0); /* Lower the button */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow intensity */
+}
+
+/* Focus effect: add a focus ring for accessibility */
+.button-yellow:focus {
+  outline: 2px solid #ffcc00; /* Yellow focus outline */
+  outline-offset: 4px; /* Offset for better visibility */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .button-yellow {
+    padding: 10px 20px; /* Smaller padding for smaller screens */
+    font-size: 14px; /* Smaller font size */
+  }
+}
+```
+
+```html
+<!-- HTML for the yellow button -->
+<!-- Include the above CSS in your project to apply styles -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yellow Button with Animation</title>
+    <style>
+        /* Insert the provided CSS here or link to an external stylesheet */
+        /* CSS for a modern, responsive yellow button with animations */
+        /* This CSS is CDN-ready and can be included via a <link> tag */
+
+        /* Base styling for the button */
+        .button-yellow {
+            background-color: #ffcc00; /* Bright yellow background */
+            color: #000; /* Black text for contrast */
+            border: none; /* No border */
+            padding: 15px 30px; /* Padding for touch targets */
+            font-size: 16px; /* Readable font size */
+            font-family: Arial, sans-serif; /* Sans-serif font for modern look */
+            cursor: pointer; /* Pointer cursor on hover */
+            outline: none; /* No outline on focus */
+            border-radius: 5px; /* Slightly rounded corners */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        /* Hover effect: darken the background and lift the button slightly */
+        .button-yellow:hover {
+            background-color: #e6b800; /* Darker yellow */
+            transform: translateY(-2px); /* Lift the button */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow intensity */
+        }
+
+        /* Active effect: slightly darken and lower the button */
+        .button-yellow:active {
+            background-color: #cc9900; /* Darker yellow */
+            transform: translateY(0); /* Lower the button */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow intensity */
+        }
+
+        /* Focus effect: add a focus ring for accessibility */
+        .button-yellow:focus {
+            outline: 2px solid #ffcc00; /* Yellow focus outline */
+            outline-offset: 4px; /* Offset for better visibility */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .button-yellow {
+                padding: 10px 20px; /* Smaller padding for smaller screens */
+                font-size: 14px; /* Smaller font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Yellow button with animation -->
+    <button class="button-yellow">Click Me!</button>
+</body>
+</html>
+```
+
+```javascript
+// JavaScript: This section is not required for the button's visual style or animation,
+// but it can be used to add interactive functionality if needed.
+// Since no JavaScript functionality is requested, this remains empty.
+// If JavaScript were needed, it would be exported as a module if used in a modular setup.
+// Example export for a module:
+// export function exampleFunction() {
+//     console.log('This is an example function.');
+// }
