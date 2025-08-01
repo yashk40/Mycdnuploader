@@ -1,0 +1,77 @@
+/* Neon Orange Glowing Button CSS */
+/* Author: [Your Name] */
+/* Date: [Date] */
+
+/* Base styles for the button */
+.neon-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: transparent;
+  border: 2px solid #ff5733;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none; /* Prevent text selection */
+  overflow: hidden;  /* Ensure glow effect stays within the button bounds */
+}
+
+/* Hover effect to intensify the glow */
+.neon-button:hover {
+  box-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733, 0 0 40px #ff5733;
+}
+
+/* Focus effect for keyboard navigation */
+.neon-button:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+/* Glow animation keyframes */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733, 0 0 40px #ff5733;
+    box-shadow: 0 0 5px #ff5733, 0 0 15px #ff5733, 0 0 25px #ff5733;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff5733, 0 0 30px #ff5733, 0 0 40px #ff5733, 0 0 50px #ff5733;
+    box-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733, 0 0 40px #ff5733;
+  }
+}
+
+/* Apply the glow animation to the button */
+.neon-button {
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .neon-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Orange Glowing Button</title>
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="path/to/neon-button.css">
+</head>
+<body>
+  <!-- Neon button element -->
+  <button class="neon-button">Click Me!</button>
+</body>
+</html>
+```
+
+**Note:** Replace `"path/to/neon-button.css"` with the actual path to the CSS file when using in a project. This HTML snippet is self-contained and can be used directly in a web page to display the neon orange glowing button. The CSS ensures a modern look and responsiveness across different devices.
