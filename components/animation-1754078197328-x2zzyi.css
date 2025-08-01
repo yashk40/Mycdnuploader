@@ -1,0 +1,91 @@
+/* Button Animation Styles */
+/* A modern, animated button with hover effects including scaling, color transition, and soft glowing shadow. */
+
+/* Base button styling */
+.button {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* No borders */
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding for aesthetics */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Display as inline-block for better control */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin for spacing */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 12px; /* Rounded corners */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Initial shadow */
+  font-family: 'Arial', sans-serif; /* Modern font */
+}
+
+/* Responsive button size adjustment */
+@media (max-width: 600px) {
+  .button {
+    padding: 10px 20px; /* Smaller padding for smaller screens */
+    font-size: 14px; /* Smaller font size */
+  }
+}
+
+/* Hover effect: Scale up, change color, and add glowing shadow */
+.button:hover {
+  transform: scale(1.05); /* Scale the button slightly */
+  background-color: #45a049; /* Darker green background on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow with more opacity for glowing effect */
+}
+```
+
+```html
+<!-- Self-contained HTML for the animated button -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Button</title>
+    <style>
+        /* Include the CSS styles directly within the <style> tag for CDN-ready implementation */
+        /* Button Animation Styles */
+        /* A modern, animated button with hover effects including scaling, color transition, and soft glowing shadow. */
+
+        /* Base button styling */
+        .button {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* No borders */
+            color: white; /* White text */
+            padding: 15px 32px; /* Padding for aesthetics */
+            text-align: center; /* Center text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Display as inline-block for better control */
+            font-size: 16px; /* Font size */
+            margin: 4px 2px; /* Margin for spacing */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 12px; /* Rounded corners */
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Initial shadow */
+            font-family: 'Arial', sans-serif; /* Modern font */
+        }
+
+        /* Responsive button size adjustment */
+        @media (max-width: 600px) {
+            .button {
+                padding: 10px 20px; /* Smaller padding for smaller screens */
+                font-size: 14px; /* Smaller font size */
+            }
+        }
+
+        /* Hover effect: Scale up, change color, and add glowing shadow */
+        .button:hover {
+            transform: scale(1.05); /* Scale the button slightly */
+            background-color: #45a049; /* Darker green background on hover */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow with more opacity for glowing effect */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Button element -->
+<a href="#" class="button">Hover Me!</a>
+
+</body>
+</html>
