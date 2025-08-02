@@ -1,0 +1,154 @@
+/* 
+  Input Field Animation Stylesheet
+  This stylesheet provides a modern, animated input field effect.
+  It is designed to be responsive and visually appealing.
+*/
+
+/* Basic Reset for Form Elements */
+input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Container Styling */
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.input-container input {
+  width: 100%;
+  border-bottom: 2px solid #ccc; /* Light grey underline by default */
+}
+
+/* Focus Effect */
+.input-container input:focus {
+  border-bottom-color: #2196f3; /* Blue underline when focused */
+  box-shadow: 0 1px 0 0 #2196f3; /* Matched blue shadow to enhance focus */
+}
+
+/* Placeholder Fade Animation */
+.input-container::before,
+.input-container::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  background: #2196f3;
+  transition: width 0.3s ease-in-out;
+}
+
+.input-container::before {
+  left: 50%;
+}
+
+.input-container::after {
+  right: 50%;
+}
+
+.input-container input:focus::-webkit-input-placeholder { /* WebKit browsers */
+  color: transparent;
+  transition: color 0.3s ease-in-out;
+}
+
+.input-container input:focus:-moz-placeholder { /* Mozilla Firefox 18- */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.input-container input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: transparent;
+  opacity: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+.input-container input:focus:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: transparent;
+  transition: color 0.3s ease-in-out;
+}
+
+.input-container input:focus::placeholder { /* Standard */
+  color: transparent;
+  transition: color 0.3s ease-in-out;
+}
+
+.input-container input:focus::before,
+.input-container input:focus::after {
+  width: 50%; /* Extend both sides equally */
+}
+
+/* Label Styling and Animation */
+.input-container label {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.7rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-container input:focus ~ label,
+.input-container input:not(:placeholder-shown) ~ label {
+  bottom: 2rem; /* Move label up when input is focused or not empty */
+  font-size: 0.8rem;
+  color: #2196f3; /* Blue color for active label */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .input-container {
+    max-width: 300px;
+  }
+
+  .input-container input {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  .input-container label {
+    bottom: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+```
+
+```html
+<!-- Self-contained HTML structure for animated input field -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Input Field</title>
+  <!-- Link to the external CSS for animations -->
+  <link rel="stylesheet" href="https://example.com/path/to/animated-input.css">
+  <style>
+    /* Basic page styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-container">
+    <input type="text" id="username" placeholder="Username" required>
+    <label for="username">Username</label>
+  </div>
+</body>
+</html>
+```
+
+**Note:** Replace `https://example.com/path/to/animated-input.css` with the actual path to your CSS file when using this in a project.
