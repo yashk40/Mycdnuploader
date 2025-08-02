@@ -3,86 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
     <style>
-        /* Glowing Button Styles */
-        .glowing-button {
-            position: relative;
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #ffcc00;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            outline: none;
-            box-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
-            transition: box-shadow 0.3s ease-in-out;
+        /* Reset some default styles */
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, textarea, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .glowing-button:active {
-            box-shadow: 0 0 15px rgba(255, 204, 0, 1);
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .glowing-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
+        .contact-form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            height: 100%;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.3s ease-in-out;
+            max-width: 400px;
         }
 
-        .glowing-button:active::after {
-            transform: translate(-50%, -50%) scale(1);
+        .contact-form h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #333;
         }
 
-        /* Responsive Design */
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+            pointer-events: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+            color: #999;
+        }
+
+        .input-group input:focus + label,
+        .input-group textarea:focus + label,
+        .input-group input:not(:placeholder-shown) + label,
+        .input-group textarea:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.8);
+            color: #333;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.3rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #333;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 600px) {
-            .glowing-button {
-                font-size: 14px;
-                padding: 8px 16px;
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-form h2 {
+                font-size: 1.25rem;
+            }
+
+            .input-group input,
+            .input-group textarea {
+                padding: 0.75rem;
+            }
+
+            .submit-button {
+                padding: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Glowing Button Component -->
-    <button class="glowing-button" id="glowing-button">Click Me!</button>
-
-    <script>
-        // Glowing Button Component Logic
-        (function() {
-            'use strict';
-
-            // Select the button element
-            const button = document.getElementById('glowing-button');
-
-            // Error handling for button selection
-            if (!button) {
-                console.error('Button element not found.');
-                return;
-            }
-
-            // Function to handle button click
-            function handleClick(event) {
-                event.preventDefault();
-                console.log('Button clicked!');
-            }
-
-            // Add event listener to the button
-            button.addEventListener('click', handleClick);
-
-            // Export the component for CDN usage
-            window.GlowingButton = {
-                button,
-                handleClick
-            };
-        })();
-    </script>
+    <form class="contact-form">
+        <h2>Contact Us</h2>
+        <div class="input-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <textarea id="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+        </div>
+        <button type="submit" class="submit-button">Send</button>
+    </form>
 </body>
 </html>
+```
+
+### Usage Code for CDN
+
+To use this CSS in a project via a CDN, you can host the CSS file on a CDN service like [jsDelivr](https://www.jsdelivr.com/) or [Unpkg](https://unpkg.com/). Once hosted, you can include it in your HTML file using a `<link>` tag:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/your-username/your-repo@main/contact-form.css">
+</head>
+<body>
+    <form class="contact-form">
+        <h2>Contact Us</h2>
+        <div class="input-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <textarea id="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+        </div>
+        <button type="submit" class="submit-button">Send</button>
+    </form>
+</body>
+</html>
+```
+
+Replace `https://cdn.jsdelivr.net/gh/your-username/your-repo@main/contact-form.css` with the actual URL of your hosted CSS file.
