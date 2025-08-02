@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Animation</title>
+    <style>
+        /* Reset some default styles for form elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.75rem;
+            color: #999;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: -1rem;
+            left: 0.5rem;
+            font-size: 0.8rem;
+            color: #007bff;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #007bff;
+        }
+
+        .input-group.error input {
+            border-color: #dc3545;
+        }
+
+        .input-group.error label {
+            color: #dc3545;
+        }
+
+        .input-group.error .error-message {
+            color: #dc3545;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .input-group label {
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form class="contact-form">
+        <h2>Contact Us</h2>
+        <div class="input-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="message" placeholder=" " required>
+            <label for="message">Message</label>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <script>
+        // Simple error handling for demonstration purposes
+        document.querySelector('.contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            document.querySelectorAll('.input-group').forEach(function(group) {
+                if (group.querySelector('input').value.trim() === '') {
+                    group.classList.add('error');
+                    isValid = false;
+                } else {
+                    group.classList.remove('error');
+                }
+            });
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### Usage
+To use this CSS and JavaScript in your project, you can either:
+
+1. Copy the HTML, CSS, and JavaScript code directly into your project files.
+2. Host the HTML file on a server and include it via an iframe or direct link.
+3. Extract the CSS and JavaScript into separate files and include them via `<link>` and `<script>` tags respectively.
+
+### Example of including via CDN-like structure (assuming you host the files on a server):
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="https://your-cdn-url/contact-form.css">
+</head>
+<body>
+    <form class="contact-form">
+        <h2>Contact Us</h2>
+        <div class="input-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="message" placeholder=" " required>
+            <label for="message">Message</label>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <script src="https://your-cdn-url/contact-form.js"></script>
+</body>
+</html>
+```
+
+Make sure to replace `https://your-cdn-url/contact-form.css` and `https://your-cdn-url/contact-form.js` with the actual URLs where your CSS and JavaScript files are hosted.
