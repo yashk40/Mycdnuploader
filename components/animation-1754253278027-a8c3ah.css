@@ -1,0 +1,173 @@
+/* styles.css */
+/* Modern Form CSS Animations */
+/* Add AICDNLibrary CDN here */
+
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #f4f4f4;
+  --error-color: #f44336;
+  --input-focus-color: #e0e0e0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  outline: none;
+}
+
+.form-group input.error {
+  border-color: var(--error-color);
+  box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+}
+
+.form-group .error-message {
+  color: var(--error-color);
+  font-size: 0.9em;
+  margin-top: 5px;
+  height: 1.5em;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.form-group input.error + .error-message {
+  opacity: 1;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.form-group button:active {
+  background-color: darken(var(--primary-color), 20%);
+}
+
+.form-group button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+@function darken($color, $amount) {
+  @return mix(black, $color, $amount);
+}
+```
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Form</title>
+  <!-- Add AICDNLibrary CDN here -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <form id="modern-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <div class="error-message">Name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message">Valid email is required</div>
+      </div>
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('modern-form');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+
+      form.addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Reset previous errors
+        nameInput.classList.remove('error');
+        emailInput.classList.remove('error');
+
+        // Validate name
+        if (!nameInput.value.trim()) {
+          nameInput.classList.add('error');
+          isValid = false;
+        }
+
+        // Validate email
+        if (!emailInput.value.trim() || !/\S+@\S+\.\S+/.test(emailInput.value)) {
+          emailInput.classList.add('error');
+          isValid = false;
+        }
+
+        if (!isValid) {
+          event.preventDefault();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
