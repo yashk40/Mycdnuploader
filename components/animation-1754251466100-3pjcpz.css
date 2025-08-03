@@ -1,0 +1,138 @@
+<!-- HTML Structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Background with Form</title>
+    <!-- Link to CDN for CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yourusername/yourrepository@main/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="form-container">
+        <form class="form">
+            <h2>Contact Us</h2>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
+```
+
+```css
+/* styles.css */
+/* CDN: https://cdn.jsdelivr.net/gh/yourusername/yourrepository@main/styles.css */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the body to cover the entire viewport */
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background animation */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #ff7e5f, #feb47b);
+    animation: gradientAnimation 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Form container styling */
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: formFadeIn 1s ease forwards;
+}
+
+/* Form element styling */
+.form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form input,
+.form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.form input:focus,
+.form textarea:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background: #ff7e5f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form button:hover {
+    background: #feb47b;
+}
+
+/* Animation for form fade-in effect */
+@keyframes formFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 30px;
+    }
+
+    .form h2 {
+        font-size: 24px;
+    }
+
+    .form input,
+    .form textarea,
+    .form button {
+        font-size: 14px;
+    }
+}
+```
+
+To use the CDN, replace `yourusername` and `yourrepository` with your GitHub username and repository name where the `styles.css` file is hosted. Ensure the file path is correct.
