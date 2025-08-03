@@ -1,0 +1,179 @@
+/* Add AICDNLibrary CDN here */
+
+/* Base styles for the card */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image inside the card */
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+}
+
+/* Image fade-in effect on hover */
+.card:hover img {
+  opacity: 0.8;
+}
+
+/* Card content styles */
+.card-content {
+  text-align: center;
+  width: 100%;
+}
+
+/* Card title styles */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Card description styles */
+.card-description {
+  font-size: 1rem;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Button inside the card */
+.card-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.card-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+```
+
+### Usage Example
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Example</title>
+    <!-- Add AICDNLibrary CDN here -->
+    <style>
+        /* Base styles for the card */
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the card */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Image inside the card */
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Image fade-in effect on hover */
+        .card:hover img {
+            opacity: 0.8;
+        }
+
+        /* Card content styles */
+        .card-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Card title styles */
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        /* Card description styles */
+        .card-description {
+            font-size: 1rem;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        /* Button inside the card */
+        .card-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .card-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder Image">
+        <div class="card-content">
+            <h2 class="card-title">Card Title</h2>
+            <p class="card-description">This is a sample description for the card. It provides some context about what the card represents.</p>
+            <button class="card-button">Learn More</button>
+        </div>
+    </div>
+</body>
+</html>
