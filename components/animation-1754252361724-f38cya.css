@@ -1,0 +1,73 @@
+/* Button Styles */
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    background-color: #6c5ce7;
+    border-radius: 6px;
+    box-shadow: 0 4px #574fc9;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.button:active {
+    background-color: #574fc9;
+    box-shadow: 0 2px #574fc9;
+    transform: translateY(2px);
+}
+
+.button:hover::after {
+    left: 0;
+    right: 0;
+}
+
+/* Animation Effect */
+.button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+```
+
+```html
+<!-- Add AICDNLibrary CDN here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Button Example</title>
+    <style>
+        /* Importing the button styles from the CDN */
+        @import url('https://path.to.your.cdn.com/button.css');
+    </style>
+</head>
+<body>
+    <!-- Usage Example of the Animated Button -->
+    <button class="button">Click Me!</button>
+</body>
+</html>
+```
+
+**Note:** Replace `'https://path.to.your.cdn.com/button.css'` with the actual URL where your CSS file is hosted when adding the CDN.
