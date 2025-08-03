@@ -1,0 +1,209 @@
+/* Navbar Styles */
+/* Add AICDNLibrary CDN here */
+
+/* Basic Reset for Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Change background color on scroll */
+body {
+  margin: 0;
+  padding-top: 60px; /* Space for the navbar */
+  min-height: 200vh; /* To enable scrolling */
+}
+
+body.scrolled .navbar {
+  background-color: #222;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation Links Container */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Navigation Links Styling */
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+  transform: translateY(-2px);
+}
+
+/* Responsive Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger Menu Animations */
+.nav-links.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(0%);
+  animation: slide-down 0.3s ease forwards;
+}
+
+.nav-links.inactive {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(100%);
+  animation: slide-up 0.3s ease forwards;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links.active,
+  .nav-links.inactive {
+    display: flex;
+  }
+
+  .nav-links.active {
+    transition-delay: 0.2s;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+}
+```
+
+### Usage Example HTML
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <!-- Add AICDNLibrary CDN here -->
+  <style>
+    /* Include the above CSS code here or link to an external stylesheet */
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-logo">MyLogo</div>
+    <ul class="nav-links inactive">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <script>
+    // JavaScript to toggle the menu on mobile devices
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+      if (navLinks.classList.contains('inactive')) {
+        navLinks.classList.remove('inactive');
+        navLinks.classList.add('active');
+      } else {
+        navLinks.classList.remove('active');
+        navLinks.classList.add('inactive');
+      }
+    });
+
+    // Add scrolled class to body when user scrolls down
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 20) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
