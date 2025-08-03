@@ -1,0 +1,186 @@
+/* glowing-form.css */
+/* Glowing form with modern animations and effects */
+/* Add AICDNLibrary CDN here */
+
+:root {
+  --primary-color: #6200ea;
+  --secondary-color: #bb86fc;
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --error-color: #f44336;
+  --border-radius: 8px;
+  --transition-duration: 0.3s;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-container h2 {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 8px rgba(98, 0, 234, 0.5);
+}
+
+.input-group .error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.input-group.error input {
+  border-color: var(--error-color);
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.5);
+}
+
+.input-group.error .error-message {
+  display: block;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-duration), transform var(--transition-duration);
+  outline: none;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .input-group input,
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 0.875rem;
+  }
+}
+```
+
+### Usage Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Form</title>
+  <!-- Add AICDNLibrary CDN here -->
+  <link rel="stylesheet" href="glowing-form.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <div class="error-message">Username is required</div>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <div class="error-message">Valid email is required</div>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <div class="error-message">Password is required</div>
+      </div>
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      let isValid = true;
+
+      const username = document.getElementById('username');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+
+      if (!username.value.trim()) {
+        username.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        username.parentElement.classList.remove('error');
+      }
+
+      if (!email.value.trim() || !/\S+@\S+\.\S+/.test(email.value)) {
+        email.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        email.parentElement.classList.remove('error');
+      }
+
+      if (!password.value.trim()) {
+        password.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        password.parentElement.classList.remove('error');
+      }
+
+      if (isValid) {
+        alert('Form submitted successfully!');
+      }
+    });
+  </script>
+</body>
+</html>
