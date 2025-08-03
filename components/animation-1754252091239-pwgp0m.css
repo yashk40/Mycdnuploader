@@ -1,0 +1,136 @@
+<!-- Add AICDNLibrary CDN here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Gradient Background</title>
+    <style>
+        /* Gradient Background Animation */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: #ff9a9e;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-form h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+
+        .contact-form .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="error" id="error"></div>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const errorDiv = document.getElementById('error');
+
+            // Simple validation
+            if (!name || !email || !message) {
+                errorDiv.textContent = 'Please fill in all fields.';
+                return;
+            }
+
+            // Clear error message if form is valid
+            errorDiv.textContent = '';
+
+            // Here you can add AJAX request to send form data
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
+```
+
+### Usage Example
+After importing the CDN (which is marked in the comments in the provided code), developers can use the HTML structure provided in the `<body>` section. The CSS and JavaScript are self-contained within the HTML file, so no additional files are needed. Here's how the component can be used:
+
+1. Include the provided HTML code in your project.
+2. Optionally, modify the form fields or styling as needed.
+3. Ensure the JavaScript section is included to handle form submissions and validation.
+
+This setup provides a clean, modern contact form with a gradient background animation and basic validation.
