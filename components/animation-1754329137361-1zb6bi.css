@@ -1,0 +1,91 @@
+/* styles.css */
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Keyframes for scale-up effect */
+@keyframes scaleUp {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+/* Keyframes for slide-in effect from the right */
+@keyframes slideInRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+/* Container for the card */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Card styling */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  animation: fadeIn 1s ease-out, scaleUp 1s ease-out, slideInRight 1s ease-out;
+}
+
+/* Card header styling */
+.card-header {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Card body styling */
+.card-body {
+  padding: 20px;
+  font-size: 16px;
+  color: #333333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .card-header {
+    font-size: 20px;
+  }
+  .card-body {
+    font-size: 14px;
+  }
+}
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Card</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        Card Title
+      </div>
+      <div class="card-body">
+        This is a responsive card with modern animations. It scales, fades in, and slides in from the right on page load.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
