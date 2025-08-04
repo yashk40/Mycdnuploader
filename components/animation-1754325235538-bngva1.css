@@ -1,0 +1,144 @@
+/* Glowing Form Animation */
+/* Style for the form container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+    padding: 20px;
+}
+
+/* Style for the form itself */
+.glowing-form {
+    background-color: #282c34;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for the form */
+.glowing-form:hover {
+    box-shadow: 0 16px 64px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+/* Input field styles */
+.glowing-form input {
+    background-color: #333;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect for input fields */
+.glowing-form input:focus {
+    background-color: #444;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+}
+
+/* Button styles */
+.glowing-form button {
+    background-color: #6200ea;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+/* Button hover effect */
+.glowing-form button:hover {
+    background-color: #3700b3;
+    box-shadow: 0 0 16px rgba(102, 0, 234, 0.5);
+}
+
+/* Button active effect */
+.glowing-form button:active {
+    transform: scale(0.98);
+}
+
+/* Error message styles */
+.error-message {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none; /* Initially hidden */
+    animation: fadeInOut 2s ease forwards;
+}
+
+/* Keyframes for fade in and out effect */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Form</title>
+    <!-- Link to external CSS for the glowing form -->
+    <link rel="stylesheet" href="https://example.com/glowing-form.css">
+</head>
+<body>
+    <!-- Form container with ID and class for styling -->
+    <div id="form-area" class="form-container">
+        <form class="glowing-form" action="#" method="post" onsubmit="return validateForm()">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <button type="submit">Submit</button>
+            <!-- Error message with class for styling -->
+            <div id="error" class="error-message">Please fill in all fields correctly.</div>
+        </form>
+    </div>
+
+    <!-- Script for form validation -->
+    <script>
+        // Function to validate form inputs
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const errorElement = document.getElementById('error');
+
+            if (name === '' || email === '') {
+                errorElement.style.display = 'block'; // Show error message
+                return false; // Prevent form submission
+            }
+
+            errorElement.style.display = 'none'; // Hide error message
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
+```
+
+**Instructions for Use:**
+1. Link the provided CSS file using the `<link>` tag in the `<head>` section.
+2. Add the `form-container` class to a parent `<div>` or other container element.
+3. Add the `glowing-form` class to the `<form>` element you want to apply the glowing effect to.
+4. Use the `error-message` class for any error messages you wish to display.
+5. Ensure the form has an `onsubmit` attribute pointing to the `validateForm()` function for error handling.
