@@ -1,0 +1,197 @@
+/* styles.css */
+
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic body styling for responsiveness */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container for the form */
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Form element styling */
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.form-container input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: scaleUp 0.5s ease-out forwards;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.form-container .error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+```
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      <input type="submit" value="Send">
+      <div class="error-message" id="error-message">Please fill in all fields.</div>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript for handling form submission and error display
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const errorMessage = document.getElementById('error-message');
+
+      if (name === '' || email === '') {
+        errorMessage.style.opacity = '1';
+      } else {
+        errorMessage.style.opacity = '0';
+        alert('Form submitted successfully!');
+        this.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
+
+```javascript
+// Optional: If you want to make the JavaScript modular and export it, you can do so like this:
+// save this as script.js
+
+export default function handleForm() {
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const errorMessage = document.getElementById('error-message');
+
+    if (name === '' || email === '') {
+      errorMessage.style.opacity = '1';
+    } else {
+      errorMessage.style.opacity = '0';
+      alert('Form submitted successfully!');
+      this.reset();
+    }
+  });
+}
+
+// To use this script in your HTML, you would need to import it like so:
+// <script type="module">
+//   import handleForm from './script.js';
+//   handleForm();
+// </script>
+```
+
+```html
+<!-- Example of including the CSS and JS via CDN or local files -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Form</title>
+  <!-- Link to CSS file -->
+  <link rel="stylesheet" href="https://cdn.example.com/styles.css">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      <input type="submit" value="Send">
+      <div class="error-message" id="error-message">Please fill in all fields.</div>
+    </form>
+  </div>
+
+  <!-- Include JavaScript file -->
+  <script type="module" src="https://cdn.example.com/script.js"></script>
+
+</body>
+</html>
