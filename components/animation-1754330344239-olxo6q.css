@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card</title>
+    <style>
+        /* Base styles for the card container */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        /* Styling for the card itself */
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Hover effect for the card */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styling for the card image */
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Animation on hover for the card image */
+        .card:hover .card-image {
+            opacity: 0.8;
+        }
+
+        /* Content area for the card */
+        .card-content {
+            padding: 20px;
+        }
+
+        /* Title styling for the card */
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        /* Description styling for the card */
+        .card-description {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling for the card */
+        .card-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for the button */
+        .card-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .card-title {
+                font-size: 20px;
+            }
+            .card-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container to hold the card -->
+    <div class="card-container">
+        <!-- Card element with hover effects -->
+        <div class="card">
+            <!-- Image inside the card -->
+            <img src="https://via.placeholder.com/350x200" alt="Card Image" class="card-image">
+            <!-- Content area of the card -->
+            <div class="card-content">
+                <!-- Title of the card -->
+                <h2 class="card-title">Modern Card</h2>
+                <!-- Description inside the card content -->
+                <p class="card-description">This is a modern, responsive card with clean CSS animations.</p>
+                <!-- Action button in the card -->
+                <button class="card-button">Learn More</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
