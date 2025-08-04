@@ -1,0 +1,107 @@
+/* responsive-card.css */
+/* Add AICDNLibrary CDN here */
+
+/* Base styles for the card */
+.responsive-card {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect for the card */
+.responsive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styles */
+.responsive-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card content container */
+.responsive-card .card-content {
+  padding: 16px;
+  flex: 1;
+}
+
+/* Title styles */
+.responsive-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Description styles */
+.responsive-card p {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Button styles */
+.responsive-card .card-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.responsive-card .card-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .responsive-card {
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .responsive-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .responsive-card p {
+    font-size: 0.9rem;
+  }
+}
+```
+
+### Usage Example
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Card Example</title>
+  <!-- Add AICDNLibrary CDN here -->
+  <link rel="stylesheet" href="responsive-card.css">
+</head>
+<body>
+  <div class="responsive-card">
+    <img src="https://via.placeholder.com/300x200" alt="Sample Image">
+    <div class="card-content">
+      <h2>Card Title</h2>
+      <p>This is a sample description for the card. It provides a brief overview of the card's content.</p>
+      <button class="card-button">Read More</button>
+    </div>
+  </div>
+</body>
+</html>
