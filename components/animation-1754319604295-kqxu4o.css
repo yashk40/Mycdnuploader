@@ -1,0 +1,123 @@
+/* Add AICDNLibrary CDN here */
+
+/* Modern Button Styles */
+.modern-button {
+  --button-color: #6200ea; /* Default button color */
+  --button-hover-color: #3700b3; /* Color on hover */
+  --button-text-color: #ffffff; /* Text color */
+  --button-border-radius: 8px; /* Border radius */
+  --button-padding: 16px 32px; /* Padding inside the button */
+  --button-font-size: 1em; /* Font size */
+  --button-transition-duration: 0.3s; /* Transition duration for smooth effects */
+  --button-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  cursor: pointer;
+  transition: background-color var(--button-transition-duration), transform var(--button-transition-duration), box-shadow var(--button-transition-duration);
+  box-shadow: var(--button-box-shadow);
+  outline: none;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  text-transform: uppercase; /* Uppercase text for consistency */
+}
+
+/* Hover Effects */
+.modern-button:hover {
+  background-color: var(--button-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Active Effects */
+.modern-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus Effects */
+.modern-button:focus {
+  outline: 2px solid var(--button-hover-color);
+  outline-offset: 2px;
+}
+
+/* Disabled State */
+.modern-button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+```
+
+### Usage Example
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Button Example</title>
+  <!-- Import Google Fonts for Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Add AICDNLibrary CDN here -->
+  <style>
+    /* Modern Button Styles */
+    .modern-button {
+      --button-color: #6200ea; /* Default button color */
+      --button-hover-color: #3700b3; /* Color on hover */
+      --button-text-color: #ffffff; /* Text color */
+      --button-border-radius: 8px; /* Border radius */
+      --button-padding: 16px 32px; /* Padding inside the button */
+      --button-font-size: 1em; /* Font size */
+      --button-transition-duration: 0.3s; /* Transition duration for smooth effects */
+      --button-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+
+      background-color: var(--button-color);
+      color: var(--button-text-color);
+      border: none;
+      border-radius: var(--button-border-radius);
+      padding: var(--button-padding);
+      font-size: var(--button-font-size);
+      cursor: pointer;
+      transition: background-color var(--button-transition-duration), transform var(--button-transition-duration), box-shadow var(--button-transition-duration);
+      box-shadow: var(--button-box-shadow);
+      outline: none;
+      font-family: 'Roboto', sans-serif; /* Modern font */
+      text-transform: uppercase; /* Uppercase text for consistency */
+    }
+
+    /* Hover Effects */
+    .modern-button:hover {
+      background-color: var(--button-hover-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Active Effects */
+    .modern-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Focus Effects */
+    .modern-button:focus {
+      outline: 2px solid var(--button-hover-color);
+      outline-offset: 2px;
+    }
+
+    /* Disabled State */
+    .modern-button:disabled {
+      background-color: #9e9e9e;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <button class="modern-button">Click Me</button>
+  <button class="modern-button" disabled>Disabled Button</button>
+</body>
+</html>
