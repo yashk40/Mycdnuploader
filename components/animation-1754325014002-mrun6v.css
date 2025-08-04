@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Form</title>
+    <style>
+        /* Base styles for the body to create a dark background for better contrast */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container for the form with a subtle shadow and margin */
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        /* Form elements styling */
+        .form-container input, .form-container button {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            background-color: #2a2a2a;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Focus effect for the input fields to create a glowing effect */
+        .form-container input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+        }
+
+        /* Button hover effect */
+        .form-container button:hover {
+            background-color: #00ffff;
+            color: #121212;
+            cursor: pointer;
+        }
+
+        /* Keyframes for the glowing effect on the form container */
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+            }
+        }
+
+        /* Applying the glowing animation to the form container */
+        .form-container {
+            animation: glow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Example usage of the glowing form -->
+    <div class="form-container">
+        <h2 style="color: #fff; margin-bottom: 1rem;">Glowing Form</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
