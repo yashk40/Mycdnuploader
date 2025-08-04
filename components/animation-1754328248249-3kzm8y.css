@@ -1,0 +1,119 @@
+### CSS (animations.css)
+/* Button Base Styling */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframes for Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for Scale Animation */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for Slide Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.scale-up {
+  animation: scaleUp 0.3s ease forwards;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease forwards;
+}
+```
+
+### HTML (index.html)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Button Example</title>
+  <link rel="stylesheet" href="animations.css">
+  <style>
+    /* Additional styling for demonstration */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Example of a button with fade-in animation -->
+    <button class="button fade-in">Fade In Button</button>
+    <!-- Example of a button with scale-up animation -->
+    <button class="button scale-up" style="margin-left: 20px;">Scale Up Button</button>
+    <!-- Example of a button with slide-in animation -->
+    <button class="button slide-in" style="margin-left: 20px;">Slide In Button</button>
+  </div>
+</body>
+</html>
+```
+
+### JavaScript (if needed, for module exports, in this case, not required)
+```javascript
+// No JavaScript needed for simple animations, but if you need to export a module, here is an example:
+// export default function animateButton(element, animationClass) {
+//   element.classList.add(animationClass);
+// }
+```
+
+### Usage in HTML (example)
+```html
+<!-- Include the CSS via CDN or local link -->
+<link rel="stylesheet" href="https://example.com/animations.css">
+
+<!-- Use the button with animations -->
+<button class="button fade-in">My Button</button>
