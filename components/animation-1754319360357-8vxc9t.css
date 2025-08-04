@@ -1,0 +1,79 @@
+/* styles.css */
+/* Modern Button Styles */
+:root {
+  --button-bg-color: #6200ea;
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: #3700b3;
+  --button-border-radius: 8px;
+  --button-padding: 16px 32px;
+  --button-font-size: 16px;
+  --button-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-hover-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  --button-transition-duration: 0.3s;
+}
+
+.button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  cursor: pointer;
+  outline: none;
+  box-shadow: var(--button-box-shadow);
+  transition: background-color var(--button-transition-duration), box-shadow var(--button-transition-duration);
+}
+
+.button:hover {
+  background-color: var(--button-hover-bg-color);
+  box-shadow: var(--button-hover-box-shadow);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button:focus {
+  outline: 2px solid rgba(98, 0, 234, 0.5);
+}
+```
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Button Example</title>
+  <!-- Add AICDNLibrary CDN here -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button class="button">Click Me</button>
+</body>
+</html>
+```
+
+```html
+<!-- Usage Example -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Button Usage Example</title>
+  <!-- Add AICDNLibrary CDN here -->
+  <link rel="stylesheet" href="https://example-cdn.com/path/to/styles.css">
+</head>
+<body>
+  <button class="button">Submit</button>
+</body>
+</html>
