@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Animation</title>
+    <style>
+        /* Base styles for the card */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        .animated-card {
+            width: 100%;
+            max-width: 300px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card-header {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .card-body {
+            padding: 20px;
+            font-size: 1rem;
+            color: #333333;
+            text-align: center;
+        }
+
+        .card-footer {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        /* Hover effect for the card */
+        .animated-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Loading spinner styles */
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin 1s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .animated-card.loading .loading-spinner {
+            opacity: 1;
+        }
+
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .animated-card {
+                max-width: 250px;
+            }
+            .card-header, .card-body, .card-footer {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Card container -->
+    <div class="card-container">
+        <!-- Animated card with loading spinner -->
+        <div class="animated-card" id="myCard">
+            <!-- Card header -->
+            <div class="card-header">
+                Hover Me!
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+                This is a responsive card with modern animations.
+            </div>
+            <!-- Card footer -->
+            <div class="card-footer">
+                Footer Content
+            </div>
+            <!-- Loading spinner -->
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Example script to simulate loading state -->
+    <script>
+        // Simulate loading state on click
+        document.getElementById('myCard').addEventListener('click', function() {
+            this.classList.toggle('loading');
+        });
+    </script>
+</body>
+</html>
