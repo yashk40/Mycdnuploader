@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <style>
+        /* Base styles for the form */
+        .glowing-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Styling for input fields */
+        .glowing-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            margin: 10px 0;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Focus effect for input fields */
+        .glowing-input:focus {
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Button styling */
+        .glowing-button {
+            background: linear-gradient(45deg, #ff0057, #ff7300);
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animation for button on hover */
+        .glowing-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0057, #ff7300);
+            transform: translateX(-100%);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .glowing-button:hover::before {
+            transform: translateX(0);
+        }
+
+        /* Animation for button on click */
+        .glowing-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Show error message */
+        .error-message.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form class="glowing-form" id="userForm">
+        <input type="text" class="glowing-input" id="username" placeholder="Username" required>
+        <input type="email" class="glowing-input" id="email" placeholder="Email" required>
+        <input type="password" class="glowing-input" id="password" placeholder="Password" required>
+        <button type="submit" class="glowing-button">Submit</button>
+        <div class="error-message" id="errorMessage">Please fill in all fields.</div>
+    </form>
+
+    <script>
+        // JavaScript for form validation and error handling
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Simple validation
+            if (!username || !email || !password) {
+                errorMessage.classList.add('active');
+            } else {
+                errorMessage.classList.remove('active');
+                alert('Form submitted successfully!');
+                // Here you can add further form handling, e.g., sending data to a server
+            }
+        });
+    </script>
+</body>
+</html>
