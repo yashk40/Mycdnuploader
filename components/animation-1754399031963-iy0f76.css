@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Form</title>
+    <style>
+        /* Base styling for the body to ensure a clean background */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Styling for the form container */
+        .glowing-form-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the form container */
+        .glowing-form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styling for the form title */
+        .glowing-form-title {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #333333;
+            text-align: center;
+        }
+
+        /* Styling for form inputs */
+        .glowing-form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            transition: border-color 0.3s ease;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        /* Focus effect for form inputs */
+        .glowing-form-input:focus {
+            border-color: #63b3ed;
+        }
+
+        /* Styling for the submit button */
+        .glowing-form-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #63b3ed;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for the submit button */
+        .glowing-form-button:hover {
+            background-color: #3490dc;
+        }
+
+        /* Glow effect for the form container on focus within */
+        .glowing-form-container:focus-within {
+            box-shadow: 0 0 20px rgba(99, 179, 237, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <form class="glowing-form-container">
+        <h2 class="glowing-form-title">Contact Us</h2>
+        <input type="text" class="glowing-form-input" placeholder="Name" required>
+        <input type="email" class="glowing-form-input" placeholder="Email" required>
+        <input type="text" class="glowing-form-input" placeholder="Message" required>
+        <button type="submit" class="glowing-form-button">Send Message</button>
+    </form>
+</body>
+</html>
