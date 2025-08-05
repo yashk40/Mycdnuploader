@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Button Animation</title>
+    <style>
+        /* Base styles for the button */
+        .modern-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+
+        /* Pseudo-element for the hover effect */
+        .modern-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover state for the button */
+        .modern-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hover state for the pseudo-element */
+        .modern-button:hover::after {
+            transform: translateX(0);
+        }
+
+        /* Focus state for accessibility */
+        .modern-button:focus {
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .modern-button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modern Button Component -->
+    <button class="modern-button">Click Me</button>
+
+</body>
+</html>
