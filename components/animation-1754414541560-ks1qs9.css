@@ -1,0 +1,97 @@
+/* GreenButton.css - A modern, responsive green button with subtle animations */
+/* CDN-Ready CSS for a clean, professional button component */
+
+/* Base styles for the button */
+.green-button {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding for touch targets */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Inline-block display */
+  font-size: 16px; /* Default font size */
+  margin: 4px 2px; /* Margin around the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .green-button {
+    padding: 10px 20px; /* Smaller padding for smaller screens */
+    font-size: 14px; /* Smaller font size for smaller screens */
+  }
+}
+
+/* Hover effect */
+.green-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Active effect */
+.green-button:active {
+  background-color: #3e8e41; /* Even darker green on active */
+  transform: scale(0.98); /* Slightly shrink on click */
+}
+
+/* Focus effect for accessibility */
+.green-button:focus {
+  outline: 2px solid #fff; /* White outline for focus */
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.7); /* Green glow for focus */
+}
+
+/* Disabled state */
+.green-button:disabled {
+  background-color: #ccc; /* Greyed out background */
+  color: #666; /* Darker text */
+  cursor: not-allowed; /* Cursor not allowed on hover */
+  box-shadow: none; /* No shadow */
+  transform: none; /* No transform */
+}
+```
+
+```html
+<!-- GreenButton.html - A self-contained HTML file with a modern green button -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Green Button</title>
+  <!-- Link to the CDN-ready CSS -->
+  <link rel="stylesheet" href="https://cdn.example.com/GreenButton.css">
+</head>
+<body>
+  <!-- Button element with the green-button class -->
+  <button class="green-button" onclick="handleClick()">Click Me!</button>
+
+  <script>
+    // JavaScript function to handle button click
+    function handleClick() {
+      try {
+        alert('Button clicked!');
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    }
+  </script>
+</body>
+</html>
+```
+
+```javascript
+// GreenButton.js - Module for handling button click with error handling
+// This file can be exported and imported in other projects
+
+// Function to handle button click
+export function handleClick() {
+  try {
+    alert('Button clicked!');
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+}
