@@ -1,0 +1,64 @@
+<!-- Modern Button Component -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Button</title>
+    <style>
+        /* Base styles for the button */
+        .modern-button {
+            font-family: 'Arial', sans-serif; /* Clean and modern font */
+            font-size: 1rem; /* Responsive font size */
+            padding: 0.8rem 1.6rem; /* Padding for touch and mouse interaction */
+            border: none; /* No border for a clean look */
+            border-radius: 0.4rem; /* Rounded corners for a modern feel */
+            background-color: #007bff; /* Primary color */
+            color: #fff; /* White text for contrast */
+            cursor: pointer; /* Pointer cursor on hover */
+            outline: none; /* Remove default focus outline */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1); /* Subtle shadow for depth */
+        }
+
+        /* Hover state */
+        .modern-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: translateY(-2px); /* Lift up the button slightly */
+        }
+
+        /* Focus state with custom outline */
+        .modern-button:focus {
+            background-color: #0056b3; /* Darker shade on focus */
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1), 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+        }
+
+        /* Active state */
+        .modern-button:active {
+            background-color: #004085; /* Even darker shade when active */
+            transform: translateY(0); /* Reset lift up effect */
+            box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2); /* Less intense shadow when pressed */
+        }
+
+        /* Disabled state */
+        .modern-button:disabled {
+            background-color: #6c757d; /* Gray color for disabled state */
+            cursor: not-allowed; /* Cursor indicates action cannot be performed */
+            box-shadow: none; /* No shadow for disabled state */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .modern-button {
+                font-size: 0.9rem; /* Smaller font size for mobile */
+                padding: 0.6rem 1.2rem; /* Adjusted padding for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Example usage of the modern button -->
+    <button class="modern-button">Click Me</button>
+    <button class="modern-button" disabled>Disabled</button>
+</body>
+</html>
