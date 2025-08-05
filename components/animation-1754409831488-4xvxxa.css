@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Button</title>
+    <style>
+        /**
+         * Basic reset for the button to remove default styles
+         */
+        .modern-button {
+            all: unset;
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /**
+         * Hover effect to enhance interactivity
+         */
+        .modern-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /**
+         * Active state to give feedback when the button is clicked
+         */
+        .modern-button:active {
+            background-color: #003d7a;
+            transform: translateY(0);
+        }
+
+        /**
+         * Focus state for accessibility
+         */
+        .modern-button:focus {
+            outline: 2px solid #0056b3;
+            outline-offset: 4px;
+        }
+
+        /**
+         * Responsive adjustments for smaller screens
+         */
+        @media (max-width: 600px) {
+            .modern-button {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern button component -->
+    <button class="modern-button">Click Me</button>
+</body>
+</html>
