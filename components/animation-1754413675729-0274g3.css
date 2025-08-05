@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Button</title>
+    <style>
+        /* Black hole button styles */
+        .black-hole-button {
+            position: relative;
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            background-color: #000;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .black-hole-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .black-hole-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s, opacity 0.5s;
+            opacity: 0;
+        }
+
+        .black-hole-button:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 1;
+        }
+
+        .black-hole-button .button-text {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 50px;
+            transition: color 0.3s ease;
+        }
+
+        .black-hole-button:hover .button-text {
+            color: #000;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .black-hole-button {
+                width: 100%;
+                max-width: 300px;
+                height: 40px;
+            }
+
+            .black-hole-button .button-text {
+                font-size: 14px;
+                line-height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Black hole button component -->
+    <button class="black-hole-button">
+        <span class="button-text">Enter</span>
+    </button>
+</body>
+</html>
+```
+
+```javascript
+// This script is CDN-ready and can be included via a script tag
+// Ensure no direct manipulation of HTML tags, only use classes or IDs
+
+// Example usage of the button, including error handling for non-existent elements
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const blackHoleButton = document.querySelector('.black-hole-button');
+        if (!blackHoleButton) {
+            throw new Error('Black hole button element not found');
+        }
+
+        blackHoleButton.addEventListener('click', () => {
+            alert('Button clicked!');
+        });
+    } catch (error) {
+        console.error('Error initializing black hole button:', error);
+    }
+});
+```
+
+```html
+<!-- Example of including the CSS and JS via CDN links -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Button with CDN</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="https://example.com/path/to/black-hole-button.css">
+</head>
+<body>
+    <!-- Black hole button component -->
+    <button class="black-hole-button">
+        <span class="button-text">Enter</span>
+    </button>
+
+    <!-- Link to external JS -->
+    <script src="https://example.com/path/to/black-hole-button.js"></script>
+</body>
+</html>
