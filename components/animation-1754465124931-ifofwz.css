@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Form</title>
+    <style>
+        /* Reset some default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the body */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container for the form */
+        .form-container {
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            border-radius: 1rem;
+            background-color: #222222;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the form container */
+        .form-container:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 0 2rem rgba(255, 255, 255, 0.2);
+        }
+
+        /* Styling for the form itself */
+        .glowing-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Input fields styling */
+        .glowing-form input {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #333333;
+            color: #ffffff;
+            transition: background-color 0.3s ease, outline 0.3s ease;
+        }
+
+        /* Glow effect on focus for input fields */
+        .glowing-form input:focus {
+            background-color: #444444;
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Button styling */
+        .glowing-form button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #ff6347;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .glowing-form button:hover {
+            background-color: #ff7f50;
+            transform: scale(1.05);
+        }
+
+        /* Button active effect */
+        .glowing-form button:active {
+            transform: scale(0.95);
+        }
+
+        /* Label styling */
+        .glowing-form label {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .glowing-form input,
+            .glowing-form button {
+                font-size: 0.9rem;
+            }
+
+            .glowing-form label {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Form container -->
+    <div class="form-container">
+        <!-- Glowing form component -->
+        <form class="glowing-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
