@@ -1,0 +1,69 @@
+/* Base styles for the body */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the button */
+        .button-container {
+            position: relative;
+            width: fit-content;
+        }
+
+        /* Styling for the glowing button */
+        .glowing-button {
+            position: relative;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Hover effect for the glowing button */
+        .glowing-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        /* Glow effect using pseudo-elements */
+        .glowing-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Glow on hover */
+        .glowing-button:hover::before {
+            opacity: 0.5;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .glowing-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+        }
