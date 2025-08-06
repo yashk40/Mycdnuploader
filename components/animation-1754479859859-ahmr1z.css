@@ -1,0 +1,53 @@
+/* Base styles for the button */
+        .modern-button {
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Ripple effect container */
+        .modern-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.6s, opacity 1s;
+        }
+
+        /* Ripple effect on hover */
+        .modern-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ripple effect activation */
+        .modern-button:active::before {
+            width: 400px;
+            height: 400px;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .modern-button {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+        }
