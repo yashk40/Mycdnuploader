@@ -1,0 +1,90 @@
+/* Base styles for the body to center the card */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the card */
+        .card-container {
+            width: 90%;
+            max-width: 400px;
+            perspective: 1000px;
+        }
+
+        /* Card styling with box-shadow and transition */
+        .card {
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* Hover effect to tilt the card */
+        .card:hover {
+            transform: rotateY(15deg);
+        }
+
+        /* Front face of the card */
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        /* Back face of the card */
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        /* Card title styling */
+        .card-title {
+            font-size: 24px;
+            margin: 0 0 16px;
+        }
+
+        /* Card description styling */
+        .card-description {
+            font-size: 16px;
+            color: #333333;
+        }
+
+        /* Button styling inside the card */
+        .card-button {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .card-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-description {
+                font-size: 14px;
+            }
+        }
