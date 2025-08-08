@@ -1,0 +1,96 @@
+/* Base styles for the body to ensure clean background */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            overflow: hidden;
+        }
+
+        /* Container for the form card */
+        .form-card-container {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            background-color: #212121;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the form card */
+        .form-card-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Styling for the form inside the card */
+        .form-card {
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        /* Input fields styling */
+        .form-card input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #333333;
+            color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Input focus effect */
+        .form-card input:focus {
+            background-color: #444444;
+            outline: none;
+        }
+
+        /* Button styling */
+        .form-card button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5722;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Button hover effect */
+        .form-card button:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+        }
+
+        /* Glowing effect on button hover */
+        .form-card button:hover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff5722, transparent);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        /* Scale up the glowing effect */
+        .form-card button:hover::before {
+            transform: scale(1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 450px) {
+            .form-card-container {
+                border-radius: 10px;
+            }
+        }
