@@ -1,0 +1,88 @@
+/* Base styles for responsiveness and accessibility */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background: linear-gradient(135deg, #1e1e2f, #2c2c42);
+    }
+
+    /* Core button styling with modern transitions */
+    .glow-button {
+      position: relative;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: linear-gradient(45deg, #6182ff, #73a5ff);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+
+    /* Glow animation keyframes */
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 10px rgba(97, 130, 255, 0.4);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(97, 130, 255, 0.6);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(97, 130, 255, 0.4);
+        transform: scale(1);
+      }
+    }
+
+    /* Base glow effect */
+    .glow-button {
+      animation: glowPulse 3s infinite;
+    }
+
+    /* Inner glow layer */
+    .glow-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(97,130,255,0.2) 0%, transparent 70%);
+      z-index: -1;
+      animation: rotateGlow 12s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Hover enhancements */
+    .glow-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(97,130,255,0.3);
+    }
+
+    /* Focus state for accessibility */
+    .glow-button:focus {
+      outline: none;
+      animation: glowPulse 2s infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .glow-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+    }
