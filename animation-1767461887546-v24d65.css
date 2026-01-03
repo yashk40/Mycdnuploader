@@ -1,0 +1,57 @@
+.neon-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #ff69b4, #ffe66d);
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6ccff, 0 0 40px #e6ccff, 0 0 50px #e6ccff, 0 0 60px #e6ccff, 0 0 70px #e6ccff;
+            animation: glow 2s infinite;
+        }
+        
+        .neon-button:hover {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6ccff, 0 0 40px #e6ccff, 0 0 50px #e6ccff, 0 0 60px #e6ccff, 0 0 70px #e6ccff;
+            }
+            50% {
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffe6cc, 0 0 40px #ffe6cc, 0 0 50px #ffe6cc, 0 0 60px #ffe6cc, 0 0 70px #ffe6cc;
+            }
+            100% {
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6ccff, 0 0 40px #e6ccff, 0 0 50px #e6ccff, 0 0 60px #e6ccff, 0 0 70px #e6ccff;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6ccff, 0 0 40px #e6ccff, 0 0 50px #e6ccff, 0 0 60px #e6ccff, 0 0 70px #e6ccff;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffe6cc, 0 0 40px #ffe6cc, 0 0 50px #ffe6cc, 0 0 60px #ffe6cc, 0 0 70px #ffe6cc;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6ccff, 0 0 40px #e6ccff, 0 0 50px #e6ccff, 0 0 60px #e6ccff, 0 0 70px #e6ccff;
+            }
+        }
+        
+        .animation-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
