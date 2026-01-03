@@ -1,0 +1,30 @@
+.neon-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #ff69b4, #ffe66d);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff69b4, 0 0 40px #ffe66d;
+            transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .neon-button:hover {
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff69b4, 0 0 60px #ffe66d;
+        }
+        
+        .animation-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, #2f4f7f, #4863a3);
+        }
