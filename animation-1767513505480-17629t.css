@@ -1,0 +1,59 @@
+.neon-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            outline: 2px solid #39ff14;
+            box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+        }
+        
+        .neon-button:hover {
+            box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        
+        .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 60px;
+            background: rgba(57, 255, 20, 0.2);
+            border-radius: 10px;
+            z-index: -1;
+            animation: glow 2s infinite;
+        }
+        
+        @keyframes glow {
+            0% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
