@@ -1,0 +1,44 @@
+.neon-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #33ccff, 0 0 25px #33ccff, 0 0 30px #33ccff, 0 0 35px #33ccff;
+            box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #33ccff, 0 0 25px #33ccff, 0 0 30px #33ccff, 0 0 35px #33ccff;
+            transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .neon-button:hover {
+            box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #66ffff, 0 0 25px #66ffff, 0 0 30px #66ffff, 0 0 35px #66ffff, 0 0 40px #66ffff, 0 0 45px #66ffff, 0 0 50px #66ffff;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #66ffff, 0 0 25px #66ffff, 0 0 30px #66ffff, 0 0 35px #66ffff, 0 0 40px #66ffff, 0 0 45px #66ffff, 0 0 50px #66ffff;
+            }
+            50% {
+                box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #99ffff, 0 0 25px #99ffff, 0 0 30px #99ffff, 0 0 35px #99ffff, 0 0 40px #99ffff, 0 0 45px #99ffff, 0 0 50px #99ffff;
+            }
+            100% {
+                box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #66ffff, 0 0 25px #66ffff, 0 0 30px #66ffff, 0 0 35px #66ffff, 0 0 40px #66ffff, 0 0 45px #66ffff, 0 0 50px #66ffff;
+            }
+        }
+        
+        .animation-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
