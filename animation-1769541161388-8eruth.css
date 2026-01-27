@@ -1,0 +1,157 @@
+/* Global Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .section {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #3e8e41;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(to bottom, #4CAF50, #3e8e41);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background-color: #f7f7f7;
+            padding: 50px 0;
+        }
+        
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        /* Solution Section */
+        .solution {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+        
+        .solution-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: #f7f7f7;
+            padding: 50px 0;
+        }
+        
+        .feature {
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+        
+        .step {
+            margin-bottom: 20px;
+        }
+        
+        .step-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        /* Social Proof Section */
+        .social-proof {
+            background-color: #f7f7f7;
+            padding: 50px 0;
+        }
+        
+        .testimonial {
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            background-image: linear-gradient(to bottom, #4CAF50, #3e8e41);
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .final-cta-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px 0;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .section-subtitle {
+                font-size: 14px;
+            }
+        }
