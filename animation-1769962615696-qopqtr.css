@@ -1,0 +1,39 @@
+.glassmorphic-card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #2d2d2d, #333);
+        }
+        
+        .glassmorphic-card {
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glassmorphic-card:hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(5deg);
+        }
+        
+        .glassmorphic-card-info {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .glassmorphic-card-info span {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
